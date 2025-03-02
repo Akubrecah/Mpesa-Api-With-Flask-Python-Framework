@@ -1,0 +1,86 @@
+<!-- filepath: /c:/xampp/htdocs/daraja_flask/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daraja M-Pesa Integration</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styling for the body to center the content */
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* Styling for the container */
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Styling for the primary button */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        /* Styling for the form labels */
+        .form-group label {
+            font-weight: bold;
+        }
+        /* Styling for the text in the center */
+        .text-center {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container for the form -->
+    <div class="container">
+        <!-- Title of the form -->
+        <h1 class="text-center">Aku Brecah Ent</h1>
+        <!-- Payment form -->
+        <form action="/pay" method="post" class="mt-4" id="paymentForm">
+            <!-- Phone number input field -->
+            <div class="form-group">
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+            </div>
+            <!-- Amount input field -->
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="text" class="form-control" id="amount" name="amount" required>
+            </div>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block">Pay</button>
+        </form>
+        <!-- Alert message to display the response -->
+        <div class="alert alert-info mt-3 d-none" id="responseMessage"></div>
+    </div>
+    <!-- jQuery for handling form submission -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Popper.js for Bootstrap tooltips and popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript for additional functionality -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $('#paymentForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+                var formData = $(this).serialize(); // Serialize form data
+                // Send POST request to /pay endpoint
+                $.post('/pay', formData, function(response) {
+                    // Display the response message
+                    $('#responseMessage').removeClass('d-none').text(response.message);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
