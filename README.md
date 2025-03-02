@@ -63,10 +63,6 @@ Here is an example of a README.md file for your project:
 - [.gitignore](http://_vscodecontentref_/3): Git ignore file.
 - `README.md`: Project documentation.
 
-<!-- ## License
-
-This project is licensed under the MIT License. See the LICENSE file for details. -->
-
 ## Acknowledgements
 
 - [Safaricom Daraja API](https://developer.safaricom.co.ke/daraja/apis/post/safaricom-sandbox)
