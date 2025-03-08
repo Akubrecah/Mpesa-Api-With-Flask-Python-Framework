@@ -18,21 +18,21 @@ This project demonstrates the integration of the Daraja M-Pesa API using Flask. 
 
 1. Clone the repository:
 
-    ```sh
+    ```
     git clone https://github.com/your-username/your-repository.git
     cd your-repository
     ```
 
 2. Create a virtual environment and activate it:
 
-    ```sh
+    ```
     python -m venv venv
     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
 
 3. Install the required packages:
 
-    ```sh
+    ```
     pip install -r requirements.txt
     ```
 
@@ -40,7 +40,7 @@ This project demonstrates the integration of the Daraja M-Pesa API using Flask. 
 
 1. Run the Flask application:
 
-    ```sh
+    ```
     flask run
     ```
 
